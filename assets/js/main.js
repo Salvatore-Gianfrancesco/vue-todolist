@@ -1,4 +1,4 @@
-import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+const { createApp } = Vue;
 
 createApp({
     data() {
@@ -17,6 +17,12 @@ createApp({
                     done: false
                 }
             ]
+        }
+    },
+    methods: {
+        cancelTask(i) {
+            // console.log(i);
+            this.tasks.splice(i, 1);
         }
     }
 }).mount('#app');
