@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            newTask: "",
+            error: false,
             tasks: [
                 {
                     text: "Learn HTML",
@@ -23,6 +25,21 @@ createApp({
         cancelTask(i) {
             // console.log(i);
             this.tasks.splice(i, 1);
+        },
+        addTask(taskText) {
+            // console.log(this.newTask);
+            // console.log(this.newTask.length);
+
+            if (taskText.length < 5) {
+                this.error = true;
+            } else {
+                this.tasks.unshift({
+                    text: taskText,
+                    done: false
+                });
+                this.newTask = "";
+                this.error = false;
+            }
         }
     }
 }).mount('#app');

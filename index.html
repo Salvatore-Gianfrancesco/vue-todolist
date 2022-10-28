@@ -16,8 +16,19 @@
 <body class="bg-dark text-light">
     <div id="app">
         <div class="container">
+            <div class="add_task my-3">
+                <h3 class="mb-2">Add a new task</h3>
+                <div class="d-flex align-items-center">
+                    <input type="text" class="form-control w-25 shadow-none" v-model="newTask">
+                    <button type="button" class="btn btn-light mx-2" @click.stopPropagation()="addTask(newTask)">
+                        Add task
+                    </button>
+                    <small class="text-danger " v-show="error">Insert a task of at least 5 characters</small>
+                </div>
+            </div>
+
             <div class="task_list my-3">
-                <h3>To Do</h3>
+                <h3 class="mb-2">To Do</h3>
                 <ul v-if="tasks.length !== 0">
                     <li v-for="(task, i) in tasks">
                         <i class="fas fa-times-circle" @click.stopPropagation()="cancelTask(i)"></i>
