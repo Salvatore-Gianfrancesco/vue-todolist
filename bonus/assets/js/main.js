@@ -40,6 +40,14 @@ createApp({
                 this.newTask = "";
                 this.error = false;
             }
+        },
+        markTask(i) {
+            // console.log("Marked task", i);
+            if (this.tasks[i].done) {
+                this.tasks[i].done = false;
+            } else {
+                this.tasks[i].done = true;
+            }
         }
     }
 }).mount('#app');

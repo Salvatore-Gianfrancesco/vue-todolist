@@ -33,7 +33,8 @@
                 <ul v-if="tasks.length !== 0">
                     <li v-for="(task, i) in tasks">
                         <i class="fas fa-times-circle" @click.stopPropagation()="cancelTask(i)"></i>
-                        <span class="ms-2" :class="task.done === true ? 'text-decoration-line-through' : ''">
+                        <span class="ms-2" :class="task.done === true ? 'text-decoration-line-through' : ''"
+                            @click.stopPropagation()="markTask(i)">
                             {{task.text}}
                         </span>
                     </li>
