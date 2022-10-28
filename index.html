@@ -19,7 +19,7 @@
             <div class="add_task my-3">
                 <h3 class="mb-2">Add a new task</h3>
                 <div class="d-flex align-items-center">
-                    <input type="text" class="form-control w-25 shadow-none" v-model="newTask">
+                    <input type="text" class="form-control w-25 shadow-none" v-model.trim="newTask">
                     <button type="button" class="btn btn-light mx-2" @click.stopPropagation()="addTask(newTask)">
                         Add task
                     </button>
